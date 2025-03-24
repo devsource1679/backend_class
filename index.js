@@ -6,6 +6,7 @@ connectToMongoDb()
 
 // ROUTES
 const authRouter = require('./routes/authRoutes')
+const userRouter = require('./routes/userRoutes')
 
 app.use(express.json()) 
 app.use(cors())
@@ -24,6 +25,6 @@ app.get('/api/', (req, res)=>{
     res.send('Welcome to Aliexpress API!')
 })
 app.use('/api/auth', authRouter)
-
+app.use('/api/users', userRouter)
 
 // Mongoose is a JavaScript object-oriented programming library that creates a connection between MongoDB and the Node.js JavaScript runtime environment. It provides a straightforward, schema-based solution to model application data.
