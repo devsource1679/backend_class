@@ -1,10 +1,27 @@
 const mongoose = require('mongoose')
-const userModel = require('./user')
 
 const productSchema = new mongoose.Schema({
-
+    name: {
+        type: String,
+        required: [true, 'Product name required']
+    },
+    price: {
+        type: Number,
+        required: [true, 'Product price required']
+    },
+    category: {
+        type: String,
+        enum: ['gadgets', 'fashion', 'electronics']
+    },
+    seller: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'users'
+    },
+    description: {
+        type: String
+    }
 })
 
 const productModel = mongoose.model('products', productSchema)
 
-module.exports = userModel
+module.exports = productModel
