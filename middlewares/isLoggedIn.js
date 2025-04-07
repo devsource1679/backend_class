@@ -9,6 +9,7 @@ const user = {
   
 
   const isLoggedIn = (req, res, next)=>{
+
     if(!user.isLoggedIn){
         res.status(403).json({
             status: 'error',
